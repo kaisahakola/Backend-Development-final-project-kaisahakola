@@ -1,4 +1,28 @@
-GET http://localhost:5000/api/expense
+GET http://localhost:5000/api/expenses
 
 ###
 
+POST http://localhost:5000/api/expenses HTTP/1.1
+Content-Type: application/json
+
+{
+    "purchase_date": "2022-06-20",
+    "amount": 15.45,
+    "shop": "K-Market",
+    "category": "ruokakauppa",
+}
+
+###
+
+PUT http://localhost:5000/api/expenses HTTP/1.1
+Content-Type: application/json
+
+{
+    "id": 2,
+    "purchase_date": "2022-06-07",
+    "amount": 29.95,
+    "shop": "Lidl",
+    "category": "ruokakauppa",
+}
+
+###
