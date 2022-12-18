@@ -16,7 +16,7 @@ const expenseData = {
   // POST request to add data to the database
   addData: (invoice) =>
     new Promise((resolve, reject) => {
-      const postQuery = "INSERT INTO electricity SET ?;";
+      const postQuery = "INSERT INTO expenses SET ?;";
       connection.query(postQuery, invoice, (err, result) => {
         if (err) {
           reject(err);
