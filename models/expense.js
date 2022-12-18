@@ -13,6 +13,18 @@ const expenseData = {
       });
     }),
 
+  // GET request to get data by id
+  findById: (id) =>
+    new Promise((resolve, reject) => {
+      const getIdQuery = "SELECT * FROM expenses WHERE id=?;";
+      connection.query(getIdQuery, id, (err, result) => {
+        if (err) {
+          reject(err);
+        }
+        resolve(result);
+      });
+    }),
+
   // POST request to add data to the database
   addData: (invoice) =>
     new Promise((resolve, reject) => {
@@ -40,6 +52,18 @@ const expenseData = {
           resolve(result);
         }
       );
+    }),
+
+  // DELETE request to let user delete data
+  deleteById: (id) =>
+    new Promise((resolve, reject) => {
+      const deleteQuery = "DELETE FROM expenses WHERE id=?;";
+      connection.query(deleteQuery, id, (err, result) => {
+        if (err) {
+          reject(err);
+        }
+        resolve(result);
+      });
     }),
 };
 

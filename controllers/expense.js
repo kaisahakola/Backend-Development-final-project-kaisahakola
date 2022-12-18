@@ -12,6 +12,21 @@ const getExpenses = async (req, res) => {
   }
 };
 
+// GET request to get data by id
+const getExpenseById = async (req, res) => {
+  const id = parseInt(req.params.id, 10);
+  try {
+    const response = await expenseData.findById(id);
+    if (response.length === 1) {
+      res.send(response[0]);
+    } else {
+      res.status(404).json("Not found");
+    }
+  } catch (e) {
+    res.sendStatus(500);
+  }
+};
+
 // POST request to add data to the database
 const addExpenses = async (req, res) => {
   const invoice = {
@@ -50,8 +65,28 @@ const updateExpenses = async (req, res) => {
   }
 };
 
+// DELETE request to let user delete data
+const deleteExpenses = async (req, res) => {
+  const id = parseInt(req.params.id, 10);
+  try {
+    const result = await expenseData.findById(id);
+    if (result.length === 0) {
+      res.status(404).send("Not found");
+      return;
+    }
+    const response = await expenseData.deleteById(id);
+    if (response.affectedRows === 1) {
+      res.status(200).send("Expense data deleted");
+    }
+  } catch (e) {
+    res.sendStatus(500);
+  }
+};
+
 module.exports = {
   getExpenses,
+  getExpenseById,
   addExpenses,
   updateExpenses,
+  deleteExpenses,
 };
