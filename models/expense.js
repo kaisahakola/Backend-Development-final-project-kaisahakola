@@ -44,7 +44,13 @@ const expenseData = {
         "UPDATE expenses SET purchase_date = ?, amount = ?, shop = ?, category = ? WHERE id = ?";
       connection.query(
         putQuery,
-        [invoice.purchase_date, invoice.amount, invoice.shop, invoice.category],
+        [
+          invoice.purchase_date,
+          invoice.amount,
+          invoice.shop,
+          invoice.category,
+          invoice.id,
+        ],
         (err, result) => {
           if (err) {
             reject(err);
