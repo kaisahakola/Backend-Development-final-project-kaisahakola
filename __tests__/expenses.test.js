@@ -10,6 +10,7 @@ const request = require("supertest");
 const app = require("../app");
 const connection = require("../db/connection");
 
+// Tests for GET endpoint
 describe("GET expenses endoint", () => {
   test("should return 200 and valid json", async () => {
     const response = await request(app)
@@ -33,7 +34,7 @@ describe("GET expenses endoint", () => {
 
   test("should return 1 expense", async () => {
     const response = await request(app)
-      .get("/api/expenses/1")
+      .get("/api/expenses/6")
       .set("Accept", "application/json");
 
     expect(response.status).toEqual(200);
@@ -50,13 +51,16 @@ describe("GET expenses endoint", () => {
   });
 
   test("should return 404 and Not found", async () => {
-    const response = await request(app).get("/api/expenses/111222333");
+    const response = await request(app)
+      .get("/api/expenses/111222333")
+      .set("Accept", "application/json");
 
     expect(response.status).toEqual(404);
     expect(response.text).toContain("Not found");
   });
 });
 
+// Tests for POST endpoint
 describe("POST expenses endpoint", () => {
   test("should create a new expense", async () => {
     const expense = {
@@ -90,6 +94,7 @@ describe("POST expenses endpoint", () => {
   });
 });
 
+// Tests for DELETE endpoint
 describe("DELETE expenses endpoint", () => {
   test("should delete the expense by id", async () => {
     const expense = {
@@ -123,6 +128,7 @@ describe("DELETE expenses endpoint", () => {
   });
 });
 
+// Test for PUT endpoint
 describe("PUT expenses endpoint", () => {
   let postId;
   beforeAll(async () => {

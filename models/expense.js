@@ -1,3 +1,4 @@
+const { isRef } = require("joi");
 const connection = require("../db/connection");
 
 const expenseData = {
@@ -6,6 +7,18 @@ const expenseData = {
     new Promise((resolve, reject) => {
       const getQuery = "SELECT * FROM expenses;";
       connection.query(getQuery, (err, result) => {
+        if (err) {
+          reject(err);
+        }
+        resolve(result);
+      });
+    }),
+
+  // GET request to retrieve data by shop
+  findShop: (shop) =>
+    new Promise((resolve, reject) => {
+      const getCategory = "SELECT * FROM expenses WHERE shop=?;";
+      connection.query(getCategory, shop, (err, result) => {
         if (err) {
           reject(err);
         }
@@ -24,6 +37,21 @@ const expenseData = {
         resolve(result);
       });
     }),
+
+  /*
+  // GET request to get data by month
+  findByMonth: (month) =>
+    new Promise((resolve, reject) => {
+      const getMonthQuery =
+        "SELECT * FROM expenses WHERE MONTH(purchase_date)=?;";
+      connection.query(getMonthQuery, month, (err, result) => {
+        if (err) {
+          reject(err);
+        }
+        resolve(result);
+      });
+    }),
+    */
 
   // POST request to add data to the database
   addData: (invoice) =>

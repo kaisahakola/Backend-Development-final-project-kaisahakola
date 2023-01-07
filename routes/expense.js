@@ -2,7 +2,9 @@ const express = require("express");
 
 const {
   getExpenses,
-  getExpenseById,
+  getShop,
+  //getExpenseById,
+  //getExpenseByMonth,
   addExpenses,
   updateExpenses,
   deleteExpenses,
@@ -11,7 +13,9 @@ const {
 const router = express.Router();
 
 router.get("/", getExpenses);
-router.get("/:id", getExpenseById);
+router.get("/", getShop);
+//router.get("/:id", getExpenseById);
+//router.get("/:month", getExpenseByMonth);
 router.post("/", addExpenses);
 router.put("/", updateExpenses);
 router.delete("/:id", deleteExpenses);
