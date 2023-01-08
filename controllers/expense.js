@@ -12,13 +12,13 @@ const getExpenses = async (req, res) => {
   }
 };
 
+// GET request to retrieve data by shop name
 const getShop = async (req, res) => {
+  const shop = req.query.shop;
   try {
-    const shop = req.query.shop;
-
     const response = await expenseData.findShop(shop);
     if (response) {
-      res.send(shop);
+      res.send(response);
     }
   } catch (e) {
     res.sendStatus(500);
