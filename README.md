@@ -8,7 +8,9 @@
 
 Most of us want to know where our money goes. You now have the chance to create a solution to that question. Create an application for tracking your personal expenses.
 
-# SQL statements for creating the table
+# The project:
+
+## SQL statements for creating the table
 
 CREATE TABLE expenses (
 id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
