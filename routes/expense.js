@@ -3,7 +3,7 @@ const express = require("express");
 const {
   getExpenses,
   getShop,
-  //getExpenseById,
+  getExpenseById,
   //getExpenseByMonth,
   addExpenses,
   updateExpenses,
@@ -14,7 +14,7 @@ const router = express.Router();
 
 router.get("/", getExpenses);
 router.get("/", getShop);
-//router.get("/:id", getExpenseById);
+router.get("/:id", getExpenseById);
 //router.get("/:month", getExpenseByMonth);
 router.post("/", addExpenses);
 router.put("/", updateExpenses);
