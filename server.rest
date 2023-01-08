@@ -1,3 +1,34 @@
 GET http://final-project-kaisahakola.onrender.com/api/expenses
 
 ###
+
+GET http://final-project-kaisahakola.onrender.com/api/expenses?shop=Prisma
+
+###
+
+POST http://final-project-kaisahakola.onrender.com/api/expenses HTTP/1.1
+content-type: application/json
+
+{
+    "purchase_date": "2022-07-14",
+    "amount": 38.95,
+    "shop": "Intersport",
+    "category": "urheilukauppa"
+}
+
+###
+
+PUT http://final-project-kaisahakola.onrender.com/api/expenses HTTP/1.1
+content-type: application/json
+
+{
+    "id": 81,
+    "purchase_date": "2022-07-03",
+    "amount": 29.95,
+    "shop": "Prisma",
+    "category": "ruokakauppa"
+}
+
+###
+
+DELETE http://final-project-kaisahakola.onrender.com/api/expenses/119
