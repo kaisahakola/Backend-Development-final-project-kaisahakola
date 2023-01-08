@@ -1,11 +1,16 @@
+// GET all data
 GET http://final-project-kaisahakola.onrender.com/api/expenses
 
 ###
-
+// GET by category
 GET http://final-project-kaisahakola.onrender.com/api/expenses?shop=Prisma
 
 ###
+// GET by id
+GET http://final-project-kaisahakola.onrender.com/api/expenses/1
 
+###
+// Add new data
 POST http://final-project-kaisahakola.onrender.com/api/expenses HTTP/1.1
 content-type: application/json
 
@@ -17,7 +22,7 @@ content-type: application/json
 }
 
 ###
-
+// Update data
 PUT http://final-project-kaisahakola.onrender.com/api/expenses HTTP/1.1
 content-type: application/json
 
@@ -30,5 +35,5 @@ content-type: application/json
 }
 
 ###
-
+// Detele data
 DELETE http://final-project-kaisahakola.onrender.com/api/expenses/119
