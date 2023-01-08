@@ -3,7 +3,7 @@ GET http://final-project-kaisahakola.onrender.com/api/expenses
 
 ###
 // GET by category
-GET http://final-project-kaisahakola.onrender.com/api/expenses?shop=Prisma
+GET http://final-project-kaisahakola.onrender.com/api/expenses/shop?shop=Prisma
 
 ###
 // GET by id

@@ -2,17 +2,14 @@
 GET http://localhost:5000/api/expenses
 
 ###
-
 // GET specific category
 GET http://localhost:5000/api/expenses?shop=Prisma
 
 ###
-
 // GET by id
 GET http://localhost:5000/api/expenses/1
 
 ###
-
 // Add new data
 POST http://localhost:5000/api/expenses HTTP/1.1
 content-type: application/json
@@ -25,7 +22,6 @@ content-type: application/json
 }
 
 ###
-
 // Update data
 PUT http://localhost:5000/api/expenses HTTP/1.1
 content-type: application/json
@@ -39,6 +35,5 @@ content-type: application/json
 }
 
 ###
-
 // Delete data
 DELETE http://localhost:5000/api/expenses/3
