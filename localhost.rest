@@ -2,8 +2,16 @@
 GET http://localhost:5000/api/expenses
 
 ###
-// GET specific category
-GET http://localhost:5000/api/expenses?shop=Prisma
+// GET data by shop
+GET http://localhost:5000/api/expenses/shop?shop=K-Market
+
+###
+// GET data by category
+GET http://localhost:5000/api/expenses/category?category=urheilukauppa
+
+###
+// GET data by amount
+GET http://localhost:5000/api/expenses/amount?amount=29.95
 
 ###
 // GET by id

@@ -25,6 +25,32 @@ const getShop = async (req, res) => {
   }
 };
 
+// GET request to retrieve data by category
+const getCategory = async (req, res) => {
+  const category = req.query.category;
+  try {
+    const response = await expenseData.findCategory(category);
+    if (response) {
+      res.send(response);
+    }
+  } catch (e) {
+    res.sendStatus(500);
+  }
+};
+
+// GET request to retrieve data by amount
+const getAmount = async (req, res) => {
+  const amount = req.query.amount;
+  try {
+    const response = await expenseData.findAmount(amount);
+    if (response) {
+      res.send(response);
+    }
+  } catch (e) {
+    res.sendStatus(500);
+  }
+};
+
 // GET request to get data by id
 const getExpenseById = async (req, res) => {
   const id = parseInt(req.params.id, 10);
@@ -118,6 +144,8 @@ const deleteExpenses = async (req, res) => {
 module.exports = {
   getExpenses,
   getShop,
+  getCategory,
+  getAmount,
   getExpenseById,
   //getExpenseByMonth,
   addExpenses,

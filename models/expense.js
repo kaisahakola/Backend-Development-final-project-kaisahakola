@@ -26,6 +26,30 @@ const expenseData = {
       });
     }),
 
+  // GET request to retrieve data by category
+  findCategory: (category) =>
+    new Promise((resolve, reject) => {
+      const getCategory = "SELECT * FROM expenses WHERE category=?;";
+      connection.query(getCategory, category, (err, result) => {
+        if (err) {
+          reject(err);
+        }
+        resolve(result);
+      });
+    }),
+
+  // GET request to retrieve data by amount
+  findAmount: (amount) =>
+    new Promise((resolve, reject) => {
+      const getCategory = "SELECT * FROM expenses WHERE amount=?;";
+      connection.query(getCategory, amount, (err, result) => {
+        if (err) {
+          reject(err);
+        }
+        resolve(result);
+      });
+    }),
+
   // GET request to get data by id
   findById: (id) =>
     new Promise((resolve, reject) => {
