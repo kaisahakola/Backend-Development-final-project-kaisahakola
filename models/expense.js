@@ -1,4 +1,3 @@
-const { isRef } = require("joi");
 const connection = require("../db/connection");
 
 const expenseData = {
