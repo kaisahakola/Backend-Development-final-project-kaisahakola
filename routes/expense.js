@@ -24,6 +24,6 @@ router.get("/month/:purchase_date", getMonth);
 router.get("/id/:id", getExpenseById);
 router.post("/", addExpenses);
 router.put("/", updateExpenses);
-router.delete("/:id", deleteExpenses);
+router.delete("/id/:id", deleteExpenses);
 
 module.exports = router;
