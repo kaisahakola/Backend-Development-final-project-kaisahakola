@@ -64,17 +64,41 @@ First create a .env file to the root of your project. The .env file connects you
 Now on how to use the application. You can go to http://localhost:5000/api/expenses or http://final-project-kaisahakola.onrender.com/api/expenses on your browser. This address should display all the data from the database on your screen. If you go to localhost.rest or server.rest and select the first request on the file, you should see the same data displayed.
 
 If you want to search data by some specific table content value, use the following address format:
-http://localhost:5000/api/expenses/<table_content>?<table_content>=<value>
-http://final-project-kaisahakola.onrender.com/api/expenses<table_content>?<table_content>=<value>.
+
+    http://localhost:5000/api/expenses/<table_content>?<table_content>=<use_value>
+    http://final-project-kaisahakola.onrender.com/api/expenses<table_content>?<table_content>=<use_value>.
+
 And the table contents are shop, category, amount and purchase_date.
 
-If you want tho search for data based on a specific month, use the address http://localhost:5000/api/expenses/month/<month_number> or http://final-project-kaisahakola.onrender.com/api/expenses/month/<month_number>. You can do the same in the .rest files by sending a GET request with the same address format. To serach data by id do the same but use http://localhost:5000/api/expenses/id/<id_number> or http://final-project-kaisahakola.onrender.com/api/expenses/id/<id_number>.
+If you want tho search for data based on a specific month, use the address
+
+    http://localhost:5000/api/expenses/month/<month_number>
+
+    or
+
+    http://final-project-kaisahakola.onrender.com/api/expenses/month/<month_number>.
+
+You can do the same in the .rest files by sending a GET request with the same address format. To serach data by id do the same but use
+
+    http://localhost:5000/api/expenses/id/<id_number>
+
+    or
+
+    http://final-project-kaisahakola.onrender.com/api/expenses/id/<id_number>.
 
 If you want to add new data to the application, go to a .rest file and search the POST request. Inside the curly brackets you can fill all the table contents with values of your choosing. Afterthat just send the POST request and the app will add the data to the database. Now you can see the data you added when you send the first request on the file again.
 
 If you want to update some data on the database, in .rest file serach for the PUT request. Write inside the curly brackets the id of the element you want to update and then fill in the rest of the information needed. After that you can send the PUT request and the data will be updated on the database.
 
-When you want to delete data from the database, search for the DELETE request in the .rest file. The .rest file has an address filled ready with an id at the end of the address (http://localhost:5000/api/expenses/id/<id_number> or http://final-project-kaisahakola.onrender.com/api/expenses/id/<id_number>). Change the address to the id that you want to delete from the database and send the DELETE request. The data should the nbe deleted from the database.
+When you want to delete data from the database, search for the DELETE request in the .rest file. The .rest file has an address filled ready with an id at the end of the address
+
+    http://localhost:5000/api/expenses/id/<id_number>
+
+    or
+
+    http://final-project-kaisahakola.onrender.com/api/expenses/id/<id_number>).
+
+Change the address to the id that you want to delete from the database and send the DELETE request. The data should the nbe deleted from the database.
 
 ## Tests
 
@@ -84,19 +108,19 @@ The first and second tests on the tests/expenses.test.js file passes only if you
 
 Other tests include:
 
-GET endpoint tests
--should return 200 and valid json (works with dummy data)
--should return 1 expense (works with dummy data)
--should return 404 and not found
+    GET endpoint tests
+    -should return 200 and valid json (works with dummy data)
+    -should return 1 expense (works with dummy data)
+    -should return 404 and not found
 
-POST endpoint tests
--should create a new expense
+    POST endpoint tests
+    -should create a new expense
 
-DELETE endpoint tests
--should delete the expense by id
--should check that expense with id exists
+    DELETE endpoint tests
+    -should delete the expense by id
+    -should check that expense with id exists
 
-PUT endpoint tests
--should update the expense with the id
+    PUT endpoint tests
+    -should update the expense with the id
 
 ## Self evaluation
