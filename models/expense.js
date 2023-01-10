@@ -17,8 +17,8 @@ const expenseData = {
   // GET request to retrieve data by shop
   findShop: (shop) =>
     new Promise((resolve, reject) => {
-      const getCategory = "SELECT * FROM expenses WHERE shop=?;";
-      connection.query(getCategory, shop, (err, result) => {
+      const getShop = "SELECT * FROM expenses WHERE shop=?;";
+      connection.query(getShop, shop, (err, result) => {
         if (err) {
           reject(err);
         }
@@ -41,8 +41,8 @@ const expenseData = {
   // GET request to retrieve data by amount
   findAmount: (amount) =>
     new Promise((resolve, reject) => {
-      const getCategory = "SELECT * FROM expenses WHERE amount=?;";
-      connection.query(getCategory, amount, (err, result) => {
+      const getAmount = "SELECT * FROM expenses WHERE amount=?;";
+      connection.query(getAmount, amount, (err, result) => {
         if (err) {
           reject(err);
         }
@@ -53,8 +53,8 @@ const expenseData = {
   // GET request to get data by date
   findByDate: (purchase_date) =>
     new Promise((resolve, reject) => {
-      const getDateQuery = "SELECT * FROM expenses WHERE purchase_date=?;";
-      connection.query(getDateQuery, purchase_date, (err, result) => {
+      const getDate = "SELECT * FROM expenses WHERE purchase_date=?;";
+      connection.query(getDate, purchase_date, (err, result) => {
         if (err) {
           reject(err);
         }
