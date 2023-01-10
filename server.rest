@@ -52,4 +52,4 @@ content-type: application/json
 
 ###
 // Detele data
-DELETE http://final-project-kaisahakola.onrender.com/api/expenses/119
+DELETE http://final-project-kaisahakola.onrender.com/api/expenses/id/119

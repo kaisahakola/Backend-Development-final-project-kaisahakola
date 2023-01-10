@@ -7,19 +7,19 @@ GET http://localhost:5000/api/expenses/shop?shop=K-Market
 
 ###
 // GET data by category
-GET http://localhost:5000/api/expenses/category?category=urheilukauppa
+GET http://localhost:5000/api/expenses/category?category=ruokakauppa
 
 ###
 // GET data by amount
-GET http://localhost:5000/api/expenses/amount?amount=29.95
+GET http://localhost:5000/api/expenses/amount?amount=14.20
 
 ###
 // GET data by date
-GET http://localhost:5000/api/expenses/purchase_date?purchase_date=2022-07-03
+GET http://localhost:5000/api/expenses/purchase_date?purchase_date=2022-06-01
 
 ###
 // GET data by month
-GET http://localhost:5000/api/expenses/month/7
+GET http://localhost:5000/api/expenses/month/6
 
 ###
 // GET data by id
@@ -52,4 +52,4 @@ content-type: application/json
 
 ###
 // Delete data
-DELETE http://localhost:5000/api/expenses/3
+DELETE http://localhost:5000/api/expenses/id/120
