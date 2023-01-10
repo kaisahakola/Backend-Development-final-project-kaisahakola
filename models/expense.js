@@ -50,11 +50,11 @@ const expenseData = {
       });
     }),
 
-  // GET request to get data by id
-  findById: (id) =>
+  // GET request to get data by date
+  findByDate: (purchase_date) =>
     new Promise((resolve, reject) => {
-      const getIdQuery = "SELECT * FROM expenses WHERE id=?;";
-      connection.query(getIdQuery, id, (err, result) => {
+      const getDateQuery = "SELECT * FROM expenses WHERE purchase_date=?;";
+      connection.query(getDateQuery, purchase_date, (err, result) => {
         if (err) {
           reject(err);
         }
@@ -62,7 +62,6 @@ const expenseData = {
       });
     }),
 
-  /*
   // GET request to get data by month
   findByMonth: (month) =>
     new Promise((resolve, reject) => {
@@ -75,7 +74,18 @@ const expenseData = {
         resolve(result);
       });
     }),
-    */
+
+  // GET request to get data by id
+  findById: (id) =>
+    new Promise((resolve, reject) => {
+      const getIdQuery = "SELECT * FROM expenses WHERE id=?;";
+      connection.query(getIdQuery, id, (err, result) => {
+        if (err) {
+          reject(err);
+        }
+        resolve(result);
+      });
+    }),
 
   // POST request to add data to the database
   addData: (invoice) =>

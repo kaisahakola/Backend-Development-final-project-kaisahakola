@@ -5,8 +5,9 @@ const {
   getShop,
   getCategory,
   getAmount,
+  getDate,
+  getMonth,
   getExpenseById,
-  //getExpenseByMonth,
   addExpenses,
   updateExpenses,
   deleteExpenses,
@@ -18,8 +19,9 @@ router.get("/", getExpenses);
 router.get("/shop", getShop);
 router.get("/category", getCategory);
 router.get("/amount", getAmount);
-router.get("/:id", getExpenseById);
-//router.get("/:month", getExpenseByMonth);
+router.get("/purchase_date", getDate);
+router.get("/month/:purchase_date", getMonth);
+router.get("/id/:id", getExpenseById);
 router.post("/", addExpenses);
 router.put("/", updateExpenses);
 router.delete("/:id", deleteExpenses);

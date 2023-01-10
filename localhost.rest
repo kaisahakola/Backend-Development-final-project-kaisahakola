@@ -14,8 +14,16 @@ GET http://localhost:5000/api/expenses/category?category=urheilukauppa
 GET http://localhost:5000/api/expenses/amount?amount=29.95
 
 ###
-// GET by id
-GET http://localhost:5000/api/expenses/1
+// GET data by date
+GET http://localhost:5000/api/expenses/purchase_date?purchase_date=2022-07-03
+
+###
+// GET data by month
+GET http://localhost:5000/api/expenses/month/7
+
+###
+// GET data by id
+GET http://localhost:5000/api/expenses/id/1
 
 ###
 // Add new data
@@ -23,9 +31,9 @@ POST http://localhost:5000/api/expenses HTTP/1.1
 content-type: application/json
 
 {
-    "purchase_date": "2022-07-3",
-    "amount": 17.45,
-    "shop": "Prisma",
+    "purchase_date": "2022-07-16",
+    "amount": 19.50,
+    "shop": "Lidl",
     "category": "ruokakauppa"
 }
 

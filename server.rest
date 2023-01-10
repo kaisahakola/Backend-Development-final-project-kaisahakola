@@ -2,8 +2,8 @@
 GET http://final-project-kaisahakola.onrender.com/api/expenses
 
 ###
-// GET by category
-GET http://final-project-kaisahakola.onrender.com/api/expenses/shop?shop=Prisma
+// GET by shop
+GET http://final-project-kaisahakola.onrender.com/api/expenses/shop?shop=K-Market
 
 ###
 // GET data by category
@@ -14,8 +14,16 @@ GET http://final-project-kaisahakola.onrender.com/api/expenses/category?category
 GET http://final-project-kaisahakola.onrender.com/api/expenses/amount?amount=29.95
 
 ###
+// GET data by date
+GET http://final-project-kaisahakola.onrender.com/api/expenses/purchase_date?purchase_date=2022-07-13
+
+###
+// GET data by month
+GET http://final-project-kaisahakola.onrender.com/api/expenses/month/7
+
+###
 // GET by id
-GET http://final-project-kaisahakola.onrender.com/api/expenses/1
+GET http://final-project-kaisahakola.onrender.com/api/expenses/id/1
 
 ###
 // Add new data

@@ -19,6 +19,8 @@ const getShop = async (req, res) => {
     const response = await expenseData.findShop(shop);
     if (response) {
       res.send(response);
+    } else {
+      res.status(404).send("Not found");
     }
   } catch (e) {
     res.sendStatus(500);
@@ -32,6 +34,8 @@ const getCategory = async (req, res) => {
     const response = await expenseData.findCategory(category);
     if (response) {
       res.send(response);
+    } else {
+      res.status(404).send("Not found");
     }
   } catch (e) {
     res.sendStatus(500);
@@ -45,6 +49,38 @@ const getAmount = async (req, res) => {
     const response = await expenseData.findAmount(amount);
     if (response) {
       res.send(response);
+    } else {
+      res.status(404).send("Not found");
+    }
+  } catch (e) {
+    res.sendStatus(500);
+  }
+};
+
+// GET request to get expense data by date
+const getDate = async (req, res) => {
+  const purchase_date = req.params.purchase_date;
+  try {
+    const response = await expenseData.findByDate(purchase_date);
+    if (response) {
+      res.send(response);
+    } else {
+      res.status(404).send("Not found");
+    }
+  } catch (e) {
+    res.sendStatus(500);
+  }
+};
+
+// GET request to get expense data by month
+const getMonth = async (req, res) => {
+  const month = req.params.purchase_date;
+  try {
+    const response = await expenseData.findByMonth(month);
+    if (response) {
+      res.send(response);
+    } else {
+      res.status(404).send("Not found");
     }
   } catch (e) {
     res.sendStatus(500);
@@ -65,23 +101,6 @@ const getExpenseById = async (req, res) => {
     res.sendStatus(500);
   }
 };
-
-/*
-// GET request to get expense data by month
-const getExpenseByMonth = async (req, res) => {
-  const month = req.params.purchase_date;
-  try {
-    const response = await expenseData.findByMonth(month);
-    if (response) {
-      res.send(response);
-    } else {
-      res.status(404).json("Not found");
-    }
-  } catch (e) {
-    res.sendStatus(500);
-  }
-};
-*/
 
 // POST request to add data to the database
 const addExpenses = async (req, res) => {
@@ -146,8 +165,9 @@ module.exports = {
   getShop,
   getCategory,
   getAmount,
+  getDate,
+  getMonth,
   getExpenseById,
-  //getExpenseByMonth,
   addExpenses,
   updateExpenses,
   deleteExpenses,
