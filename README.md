@@ -58,7 +58,7 @@ First create a .env file to the root of your project. The .env file connects you
     HOST: "<insert your host name>"
     DBUSERNAME: "<insert your username>"
     PASSWORD: "<insert your password>"
-    DATABASE: "<insert the database your using>"
+    DATABASE: "<insert the database you're using>"
     PORT: 5000
 
 Now on how to use the application. You can go to http://localhost:5000/api/expenses or http://final-project-kaisahakola.onrender.com/api/expenses on your browser. This address should display all the data from the database on your screen. If you go to localhost.rest or server.rest and select the first request on the file, you should see the same data displayed.
@@ -86,9 +86,28 @@ You can do the same in the .rest files by sending a GET request with the same ad
 
     http://final-project-kaisahakola.onrender.com/api/expenses/id/<id_number>.
 
-If you want to add new data to the application, go to a .rest file and search the POST request. Inside the curly brackets you can fill all the table contents with values of your choosing. Afterthat just send the POST request and the app will add the data to the database. Now you can see the data you added when you send the first request on the file again.
+If you want to add new data to the application, go to a .rest file and search the POST request. Inside the curly brackets you can fill all the table contents with values of your choosing. For example:
 
-If you want to update some data on the database, in .rest file serach for the PUT request. Write inside the curly brackets the id of the element you want to update and then fill in the rest of the information needed. After that you can send the PUT request and the data will be updated on the database.
+    {
+        "purchase_date": "2022-07-16",
+        "amount": 19.50,
+        "shop": "Lidl",
+        "category": "ruokakauppa"
+    }
+
+After that just send the POST request and the app will add the data to the database. Now you can see the data you added when you send the first request on the file again.
+
+If you want to update some data on the database, in .rest file serach for the PUT request. Write inside the curly brackets the id of the element you want to update and then fill in the rest of the information needed. For example:
+
+    {
+        "id": 2,
+        "purchase_date": "2022-06-07",
+        "amount": 29.95,
+        "shop": "Lidl",
+        "category": "ruokakauppa"
+    }
+
+After that you can send the PUT request and the data will be updated on the database.
 
 When you want to delete data from the database, search for the DELETE request in the .rest file. The .rest file has an address filled ready with an id at the end of the address
 
