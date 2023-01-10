@@ -34,7 +34,7 @@ describe("GET expenses endoint", () => {
 
   test("should return 1 expense", async () => {
     const response = await request(app)
-      .get("/api/expenses/6")
+      .get("/api/expenses/id/1")
       .set("Accept", "application/json");
 
     expect(response.status).toEqual(200);
@@ -52,7 +52,7 @@ describe("GET expenses endoint", () => {
 
   test("should return 404 and Not found", async () => {
     const response = await request(app)
-      .get("/api/expenses/111222333")
+      .get("/api/expenses/id/111222333")
       .set("Accept", "application/json");
 
     expect(response.status).toEqual(404);
@@ -112,7 +112,7 @@ describe("DELETE expenses endpoint", () => {
     const postId = postResponse.body.id;
 
     const response = await request(app)
-      .delete(`/api/expenses/${postId}`)
+      .delete(`/api/expenses/id/${postId}`)
       .set("Accept", "application/json");
     expect(response.status).toEqual(200);
     expect(response.text).toEqual("Expense data deleted");
@@ -120,7 +120,7 @@ describe("DELETE expenses endpoint", () => {
 
   test("should check that expense with id exists", async () => {
     const response = await request(app)
-      .delete("/api/expenses/123123123")
+      .delete("/api/expenses/id/123123123")
       .set("Accept", "appication/json");
 
     expect(response.status).toEqual(404);
@@ -139,7 +139,7 @@ describe("PUT expenses endpoint", () => {
       category: "Test category",
     };
     const postResponse = await request(app)
-      .post("/api/expenses")
+      .post("/api/expenses/")
       .set("Accept", "application/json")
       .send(expense);
 
@@ -155,7 +155,7 @@ describe("PUT expenses endpoint", () => {
       category: "New category",
     };
     const response = await request(app)
-      .put("/api/expenses")
+      .put("/api/expenses/")
       .set("Accept", "application/json")
       .send(newExpense);
     expect(response.status).toEqual(200);
@@ -175,7 +175,7 @@ describe("PUT expenses endpoint", () => {
       category: "New category",
     };
     const response = await request(app)
-      .put("/api/expenses")
+      .put("/api/expenses/id/")
       .set("Accept", "application/json")
       .send(checkExpense);
     expect(response.status).toEqual(404);
