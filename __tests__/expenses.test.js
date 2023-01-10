@@ -146,7 +146,7 @@ describe("PUT expenses endpoint", () => {
     postId = postResponse.body.id;
   });
 
-  test("should update the city with the id", async () => {
+  test("should update the expense with the id", async () => {
     const newExpense = {
       id: postId,
       purchase_date: "2022-03-31T21:00:00.000Z",
