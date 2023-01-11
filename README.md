@@ -39,21 +39,21 @@ on Render: http://final-project-kaisahakola.onrender.com/api/expenses
 Before using the application, do the following installations:
 
 Nodemon:
-npm install -g nodemon
+`npm install -g nodemon`
 
 Mysql, express and dotenv:
-npm install mysql express dotenv --save
+`npm install mysql express dotenv --save`
 
 SuperTest:
-npm install --save-dev jest supertest @jest/globals
+`npm install --save-dev jest supertest @jest/globals`
 
-I suggest using VS Code and making sure you have REST Client tool installed so that you can use the localhost.rest and server.rest files for sending the requests.
+I suggest using VS Code and making sure you have REST Client tool installed so that you can use the `localhost.rest` and `server.rest` files for sending the requests.
 
 ## Instructions
 
 Here are some instructions for using the application. The application doesn't have any frontend yet, so to use the app you have to use .rest files and browser addresses.
 
-First create a .env file to the root of your project. The .env file connects your database to the application.
+First create a `.env` file to the root of your project. The `.env` file connects your database to the application.
 
     HOST: "<insert your host name>"
     DBUSERNAME: "<insert your username>"
@@ -61,32 +61,23 @@ First create a .env file to the root of your project. The .env file connects you
     DATABASE: "<insert the database you're using>"
     PORT: 5000
 
-Now on how to use the application. You can go to http://localhost:5000/api/expenses or http://final-project-kaisahakola.onrender.com/api/expenses on your browser. This address should display all the data from the database on your screen. If you go to localhost.rest or server.rest and select the first request on the file, you should see the same data displayed.
+Now on how to use the application. Start the application by typing `npm run dev` You can go to http://localhost:5000/api/expenses or http://final-project-kaisahakola.onrender.com/api/expenses on your browser. This address should display all the data from the database on your screen. If you go to localhost.rest or server.rest and select the first request on the file, you should see the same data displayed.
 
 If you want to search data by some specific table content value, use the following address format:
 
-    http://localhost:5000/api/expenses/<table_content>?<table_content>=<use_value>
-    http://final-project-kaisahakola.onrender.com/api/expenses<table_content>?<table_content>=<use_value>.
+    /api/expenses/<table_content>?<table_content>=<use_value>
 
 And the table contents are shop, category, amount and purchase_date.
 
 If you want tho search for data based on a specific month, use the address
 
-    http://localhost:5000/api/expenses/month/<month_number>
+    /api/expenses/month/<month_number>
 
-    or
+You can do the same in the `.rest` files by sending a GET request with the same address format. To serach data by id do the same but use
 
-    http://final-project-kaisahakola.onrender.com/api/expenses/month/<month_number>.
+    /api/expenses/id/<id_number>
 
-You can do the same in the .rest files by sending a GET request with the same address format. To serach data by id do the same but use
-
-    http://localhost:5000/api/expenses/id/<id_number>
-
-    or
-
-    http://final-project-kaisahakola.onrender.com/api/expenses/id/<id_number>.
-
-If you want to add new data to the application, go to a .rest file and search the POST request. Inside the curly brackets you can fill all the table contents with values of your choosing. For example:
+If you want to add new data to the application, go to a `.rest` file and search the POST request. Inside the curly brackets you can fill all the table contents with values of your choosing. For example:
 
     {
         "purchase_date": "2022-07-16",
@@ -97,7 +88,7 @@ If you want to add new data to the application, go to a .rest file and search th
 
 After that just send the POST request and the app will add the data to the database. Now you can see the data you added when you send the first request on the file again.
 
-If you want to update some data on the database, in .rest file serach for the PUT request. Write inside the curly brackets the id of the element you want to update and then fill in the rest of the information needed. For example:
+If you want to update some data on the database, in `.rest` file serach for the PUT request. Write inside the curly brackets `{}` the id of the element you want to update and then fill in the rest of the information needed. For example:
 
     {
         "id": 2,
@@ -109,21 +100,17 @@ If you want to update some data on the database, in .rest file serach for the PU
 
 After that you can send the PUT request and the data will be updated on the database.
 
-When you want to delete data from the database, search for the DELETE request in the .rest file. The .rest file has an address filled ready with an id at the end of the address
+When you want to delete data from the database, search for the DELETE request in the `.rest` file. The `.rest` file has an address filled ready with an id at the end of the address
 
-    http://localhost:5000/api/expenses/id/<id_number>
-
-    or
-
-    http://final-project-kaisahakola.onrender.com/api/expenses/id/<id_number>).
+    /api/expenses/id/<id_number>
 
 Change the address to the id that you want to delete from the database and send the DELETE request. The data should the nbe deleted from the database.
 
 ## Tests
 
-To run the tests, you have to insert 'npm run test' to your terminal. This runs trough all the tests and tells if the code passed them.
+To run the tests, you have to insert `npm run test` to your terminal. This runs trough all the tests and tells if the code passed them.
 
-The first and second tests on the tests/expenses.test.js file passes only if you insert correct data to the test that exists on the database. So if the dummy information is a element that has been deleted or updated, the tests will not pass.
+The first and second tests on the `tests/expenses.test.js` file passes only if you insert correct data to the test that exists on the database. So if the dummy information is a element that has been deleted or updated, the tests will not pass.
 
 Other tests include:
 
