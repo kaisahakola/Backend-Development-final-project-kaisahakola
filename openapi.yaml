@@ -1,0 +1,303 @@
+
+openapi: 3.0.0
+info:
+  version: 1.0.0
+  title: Backend Development API
+  description: A simple API created to learn how to do RESTful APIs. Final project of Backend Development course in TAMK.
+servers:
+  - url: http://localhost:5000/api
+  - url: https://final-project-kaisahakola.onrender.com/api
+paths:
+  /expenses:
+    get:
+      description: Returns a array of expenses              
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    id:
+                      type: integer
+                    purchase_date:
+                      type: string
+                    amount:
+                      type: number
+                    shop:
+                      type: string
+                    category:
+                      type: string
+        '500':
+          $ref: '#/components/responses/500Error'
+    post:
+      description: Creates a new expense
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object 
+              properties:
+                purchase_date:
+                  type: string
+                amount:
+                  type: number
+                shop:
+                  type: string
+                category:
+                  type: string
+      responses:
+        '201':
+          description: Created
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:   
+                    id:
+                      type: integer
+                    purchase_date:
+                      type: string
+                    amount:
+                      type: number
+                    shop:
+                      type: string
+                    category:
+                      type: string
+        '400':
+          $ref: '#/components/responses/400Error'
+        '404':
+          $ref: '#/components/responses/404Error'
+        '500':
+          $ref: '#/components/responses/500Error'
+
+    put:
+      description: Updates an existing expense
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object 
+              properties:
+                id:
+                  type: integer
+                purchase_date:
+                  type: string
+                amount:
+                  type: number
+                shop:
+                  type: string
+                category:
+                  type: string
+      responses:
+        '200':
+          description: Updated succesfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Expense'
+        '400':
+          $ref: '#/components/responses/400Error'
+        '404':
+          $ref: '#/components/responses/404Error'
+        '500':
+          $ref: '#/components/responses/500Error'
+
+  /expenses/id/{id}:
+    get:
+      description: Obtain information about a specific expsense
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Successfully returned a expense
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Expense'
+        '400':
+          $ref: '#/components/responses/400Error'
+        '404':
+          $ref: '#/components/responses/404Error'
+        '500':
+          $ref: '#/components/responses/500Error'
+  
+    delete:
+      description: Delete a  specific expense
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Expense deleted
+          content:
+            text/plain:
+              schema:
+                type: string
+                example: Expense deleted
+                
+  /expenses/month/{month}:
+    get:
+      description: Obtain information about a specific expsense
+      parameters:
+        - name: month
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Successfully returned a expense
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Expense'
+        '400':
+          $ref: '#/components/responses/400Error'
+        '404':
+          $ref: '#/components/responses/404Error'
+        '500':
+          $ref: '#/components/responses/500Error'
+          
+  /expenses/shop:
+    get:
+      description: Obtain information about a specific expsense
+      parameters:
+        - name: shop 
+          in: query
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Successfully returned an expense
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Expense'
+        '400':
+          $ref: '#/components/responses/400Error'
+        '404':
+          $ref: '#/components/responses/404Error'
+        '500':
+          $ref: '#/components/responses/500Error'
+          
+  /expenses/purchase_date:
+    get:
+      description: Obtain information about a specific expsense
+      parameters:
+        - name: purchase_date
+          in: query
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Successfully returned an expense
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Expense'
+        '400':
+          $ref: '#/components/responses/400Error'
+        '404':
+          $ref: '#/components/responses/404Error'
+        '500':
+          $ref: '#/components/responses/500Error'
+          
+  /expenses/category:
+    get:
+      description: Obtain information about a specific expsense
+      parameters:
+        - name: category
+          in: query
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Successfully returned an expense
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Expense'
+        '400':
+          $ref: '#/components/responses/400Error'
+        '404':
+          $ref: '#/components/responses/404Error'
+        '500':
+          $ref: '#/components/responses/500Error'
+          
+  /expenses/amount:
+    get:
+      description: Obtain information about a specific expsense
+      parameters:
+        - name: amount
+          in: query
+          required: true
+          schema:
+            type: number
+      responses:
+        '200':
+          description: Successfully returned an expense
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Expense'
+        '400':
+          $ref: '#/components/responses/400Error'
+        '404':
+          $ref: '#/components/responses/404Error'
+        '500':
+          $ref: '#/components/responses/500Error'
+
+components:
+  schemas:
+    Expense:
+      type: object
+      properties:   
+          id:
+            type: integer
+          purchase_date:
+            type: string
+          amount:
+            type: number
+          shop:
+            type: string
+          category:
+            type: string
+      
+  responses:
+    400Error:
+      description: Invalid request
+      content:
+        text/plain:
+          schema:
+            type: string
+            example: Invalid value
+    404Error:
+      description: Not found
+      content:
+        text/plain:
+          schema:
+            type: string
+            example: Not found
+    500Error:
+      description: Internal error
+      content:
+        text/plain:
+          schema:
+            type: string
+            example: Internal error
