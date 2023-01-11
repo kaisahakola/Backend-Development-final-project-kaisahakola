@@ -184,7 +184,7 @@ describe("PUT expenses endpoint", () => {
 
   afterAll(async () => {
     await request(app)
-      .delete(`/api/expenses/${postId}`)
+      .delete(`/api/expenses/id/${postId}`)
       .set("Accept", "application/json");
     connection.end();
   });
