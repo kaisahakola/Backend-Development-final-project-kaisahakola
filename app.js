@@ -4,6 +4,9 @@ const expenseRouter = require("./routes/expense");
 
 const app = express();
 
+app.use(express.json());
+app.use("/api/expenses", expenseRouter);
+app.use(cors());
 app.use(
   cors({
     origin: [
@@ -12,7 +15,5 @@ app.use(
     ],
   })
 );
-app.use(express.json());
-app.use("/api/expenses", expenseRouter);
 
 module.exports = app;
