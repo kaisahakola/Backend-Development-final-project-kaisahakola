@@ -38,14 +38,13 @@ on Render: http://final-project-kaisahakola.onrender.com/api/expenses
 
 Before using the application, do the following installations:
 
-Nodemon:
-`npm install -g nodemon`
+Nodemon: `$ npm install -g nodemon`
 
-Mysql, express and dotenv:
-`npm install mysql express dotenv --save`
+Mysql, express and dotenv: `$ npm install mysql express dotenv --save`
 
-SuperTest:
-`npm install --save-dev jest supertest @jest/globals`
+SuperTest: `$ npm install --save-dev jest supertest @jest/globals`
+
+CORS: `$ npm install cors`
 
 I suggest using VS Code and making sure you have REST Client tool installed so that you can use the `localhost.rest` and `server.rest` files for sending the requests.
 
