@@ -59,7 +59,7 @@ const getAmount = async (req, res) => {
 
 // GET request to get expense data by date
 const getDate = async (req, res) => {
-  const purchase_date = req.params.purchase_date;
+  const purchase_date = req.query.purchase_date;
   try {
     const response = await expenseData.findByDate(purchase_date);
     if (response) {
