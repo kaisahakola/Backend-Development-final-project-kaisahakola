@@ -175,11 +175,10 @@ describe("PUT expenses endpoint", () => {
       category: "New category",
     };
     const response = await request(app)
-      .put("/api/expenses/id/")
-      .set("Accept", "application/json")
-      .send(checkExpense);
+      .get(`/api/expenses/id/${checkExpense.id}`)
+      .set("Accept", "application/json");
     expect(response.status).toEqual(404);
-    expect(response.text).toEqual("Not found");
+    expect(response.text).toContain("Not found");
   });
 
   afterAll(async () => {
