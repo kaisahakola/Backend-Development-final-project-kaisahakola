@@ -6,33 +6,37 @@
 
 This application can be used to keep track of expenses. With this app, you can display, add, update and delete expense data.
 
-This project was made by Kaisa Hakola, January 2023. This is my final project for the backend development course in TAMK.
+This project was made by Kaisa Hakola, January 2023. This is my final project for the Backend Development course in TAMK.
 
 # The project:
 
-## SQL statements for creating the table
+## SQL statements for creating default data
 
-CREATE TABLE expenses (
-id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-purchase_date DATE,
-amount DECIMAL(5,2),
-shop VARCHAR(30),
-category VARCHAR(30)
-);
+First create table to a database of your choice.
 
-INSERT INTO expenses (purchase_date, amount, shop, category)
-VALUES ('2022-06-01', 14.20, "K-Market", "ruokakauppa");
+    CREATE TABLE expenses (
+    id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    purchase_date DATE,
+    amount DECIMAL(5,2),
+    shop VARCHAR(30),
+    category VARCHAR(30)
+    );
 
-INSERT INTO expenses (purchase_date, amount, shop, category)
-VALUES ('2022-06-07', 32.45, "Lidl", "ruokakauppa");
+Then insert some data to that table.
 
-INSERT INTO expenses (purchase_date, amount, shop, category)
-VALUES ('2022-07-07', 5.95, "Suomalainen kirjakauppa", "kirjakauppa");
+    INSERT INTO expenses (purchase_date, amount, shop, category)
+    VALUES ('2022-06-01', 14.20, "K-Market", "ruokakauppa");
+
+    INSERT INTO expenses (purchase_date, amount, shop, category)
+    VALUES ('2022-06-07', 32.45, "Lidl", "ruokakauppa");
+
+    INSERT INTO expenses (purchase_date, amount, shop, category)
+    VALUES ('2022-07-07', 5.95, "Intersport", "urheilukauppa");
 
 ## Backend server address
 
-locally: http://localhost:5000/api/expenses
-on Render: http://final-project-kaisahakola.onrender.com/api/expenses
+locally: http://localhost:5000/api/expenses (for your own data in your database)
+on Render: http://final-project-kaisahakola.onrender.com/api/expenses (for data in my database)
 
 ## Installations
 
@@ -60,13 +64,13 @@ First create a `.env` file to the root of your project. The `.env` file connects
     DATABASE: "<insert the database you're using>"
     PORT: 5000
 
-Now on how to use the application. Start the application by typing `npm run dev` You can go to http://localhost:5000/api/expenses or http://final-project-kaisahakola.onrender.com/api/expenses on your browser. This address should display all the data from the database on your screen. If you go to localhost.rest or server.rest and select the first request on the file, you should see the same data displayed.
+Now on how to use the application. Start the application by typing `npm run dev` You can go to http://localhost:5000/api/expenses or http://final-project-kaisahakola.onrender.com/api/expenses on your browser. The first address will display the dabatase on the screen that you created and connected with the `.env` file to the application. The second address displays the database that I have created while making this application. In the root of the application is located two `.rest` files. From the `localhost.rest` file you can use and modify your own database and from the `server.rest` file you can modify my database connecting to the `onrender.com` address.
 
 If you want to search data by some specific table content value, use the following address format:
 
     /api/expenses/<table_content>?<table_content>=<use_value>
 
-And the table contents are shop, category, amount and purchase_date.
+The table contents are shop, category, amount and purchase_date. In the <use_value> part you can insert the value that you want to filter the data with. For exapmle, if you want to search all occurances where the shop name is K-Market you can use the following address: `/api/expenses/shop?shop=K-Market`.
 
 If you want tho search for data based on a specific month, use the address
 
@@ -128,4 +132,24 @@ Other tests include:
     PUT endpoint tests
     -should update the expense with the id
 
-## Self evaluation
+# Self evaluation
+
+### A. Solution Design
+
+Rating: 12
+
+### B. Execution
+
+Rating: 30
+
+### C. Requirements Satisfaction
+
+Rating: 20
+
+### D. Coding Style
+
+Rating: 20
+
+### E. Documentation
+
+Rating: 10

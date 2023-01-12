@@ -32,9 +32,9 @@ content-type: application/json
 
 {
     "purchase_date": "2022-07-16",
-    "amount": 19.50,
-    "shop": "Lidl",
-    "category": "ruokakauppa"
+    "amount": 44.90,
+    "shop": "XXL",
+    "category": "urheilukauppa"
 }
 
 ###
